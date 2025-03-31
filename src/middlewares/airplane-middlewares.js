@@ -1,4 +1,4 @@
-const {StatusCodes} = require("http-status-codes");
+const {StatusCodes} = require("http-status-codes"); 
 function validateRequest(req,res, next){
     if(!req.body.modelNumber){
         return res.status(StatusCodes.BAD_REQUEST).json({
