@@ -1,3 +1,6 @@
+const {StatusCodes} = require('http-status-codes')
+const AppError = require('../utils/errors/app-errors')
+
 class CrudRepository{
     constructor(model){
         this.model = model;
