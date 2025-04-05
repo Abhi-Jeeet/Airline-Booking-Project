@@ -29,8 +29,8 @@ async function getAirplanes(req, res) {
     SuccessResponse.data = airplanes;
     return res.status(StatusCodes.OK).json(SuccessResponse);
   } catch (error) {
-    ErrorResponse = error;
-    return res.status(error.StatusCodes).json(ErrorResponse);
+    ErrorResponse.error = error;
+    return res.status(error.StatusCode).json(ErrorResponse);
   }
 }
 
@@ -40,9 +40,8 @@ async function getAirplane(req, res){
         SuccessResponse.data=airplane;
         return res.status(StatusCodes.OK).json(SuccessResponse)
     } catch (error) {
-        ErrorResponse.message = 'Your requested airplane is not present',
-        ErrorResponse.error = error 
-        return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+        ErrorResponse.error = error;
+        return res.status(error.statusCode).json(ErrorResponse)
     }
 }
 
@@ -52,13 +51,16 @@ async function destroyAirplane(req, res){
         SuccessResponse.data=airplane;
         return res.status(StatusCodes.OK).json(SuccessResponse); 
     } catch (error) {
-        return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+        ErrorResponse.error = error;
+        return res.status(error.statusCode).json(ErrorResponse);
     }
 }
+
 
 module.exports = {
   createAirplane,
   getAirplanes,
   getAirplane,
   destroyAirplane,
+ 
 };
