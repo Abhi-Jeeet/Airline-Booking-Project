@@ -54,10 +54,11 @@ async function updateAirplane(id, data){
     return response;
   } catch (error) {
     if(error.statusCode==StatusCodes.NOT_FOUND){
-      throw new AppError("cannot able to fetch the airplane to update its data", error.statusCode);
+      throw new AppError("The plane you want to delete is not existed", error.statusCode);
     }
     throw new AppError("cannot fetch the data of the airplane", StatusCodes.INTERNAL_SERVER_ERROR);
-  }
+    
+}
 }
 
 
