@@ -46,6 +46,9 @@ class CrudRepository {
         id: id,
       },
     });
+    if(!response){
+      throw new AppError("cannot able to fetch the airplane to update the data", StatusCodes.NOT_FOUND);
+    }
     return response;
   }
 }
