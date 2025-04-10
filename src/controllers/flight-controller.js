@@ -32,12 +32,12 @@ async function createFlight(req, res) {
 async function getAllFlights(req, res){
   try {
     const flights = await FlightService.getAllFlights(req.query);
-    (SuccessResponse.message = "Successfully created an flight"),
+    (SuccessResponse.message = "Successfully fetched the flights"),
       (SuccessResponse.data = flights);
     return res.status(StatusCodes.CREATED).json(SuccessResponse);
     
   } catch (error) {
-    (ErrorResponse.message = "someting went wrong while creating an flight"),
+    (ErrorResponse.message = "someting went wrong while fetching the flights"),
       (ErrorResponse.error = error);
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(ErrorResponse);
   }
