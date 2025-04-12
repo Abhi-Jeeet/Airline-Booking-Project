@@ -61,7 +61,19 @@ function validateRequest(req, res, next) {
   next();
 }
 
+function validateSeatsRequest(req, res, next){
+  if (!req.body.seats) {
+    ErrorResponse.message = "Error while updating flight";
+    ErrorResponse.error = {
+      explanation: "Something went wrong from the client side",
+    };
+    return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+  }
+  next();
+}
+
 
 module.exports = {
   validateRequest,
+  validateSeatsRequest
 };
