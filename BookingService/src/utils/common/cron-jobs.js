@@ -4,8 +4,7 @@ const {BookingService}= require('../../services')
 function scheduleCrons(){
     cron.schedule('*/30 * * * *', async()=>{
         const response = await BookingService.cancelOldBookings();
-        console.log(response);
-        
+        console.log(response);        
     })
 }
 module.exports = scheduleCrons;
