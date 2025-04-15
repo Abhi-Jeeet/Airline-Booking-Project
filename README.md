@@ -46,5 +46,3 @@ Handles booking and payments:
 
 ---
 
-## 📁 Project Structure
-
